@@ -24,7 +24,7 @@ def get_details_for_a_stock(name):
         stock = [x for x in all_stocks if x.title.lower() == str(name.lower())]   
         print(f'the stock is {stock[0].details_url}')
         source = requests.get(stock[0].details_url).text
-        soup = BeautifulSoup(source, 'html5lib')
+        soup = BeautifulSoup(source, 'html.parser')
         main_div = soup.find('div', id='nChrtPrc')
         return stock_detail.retireve_bse_nse_data(main_div)
 
